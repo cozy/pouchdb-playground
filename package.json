@@ -48,6 +48,10 @@
     "cozy-client": "^19.1.1",
     "cozy-scripts": "5.4.2",
     "cozy-ui": "37.8.0",
+    "pouchdb": "^7.2.2",
+    "pouchdb-adapter-indexeddb": "^7.2.2",
+    "pouchdb-browser": "^7.2.2",
+    "pouchdb-find": "^7.2.2",
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-router-dom": "4.3.1"
