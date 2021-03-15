@@ -1,0 +1,32 @@
+{
+  "name": "Pouchdb playground",
+  "slug": "pouchdb-playground",
+  "icon": "icon.svg",
+  "categories": [],
+  "version": "0.1.0",
+  "licence": "AGPL-3.0",
+  "editor": "",
+  "source": "https://github.com/paultranvan/pouchdb-playground.git@build",
+  "developer": {
+    "name": "paultranvan",
+    "url": ""
+  },
+  "routes": {
+    "/": {
+      "folder": "/",
+      "index": "index.html",
+      "public": false
+    }
+  },
+  "permissions": {
+    "apps": {
+      "description": "Required by the cozy-bar to display the icons of the apps",
+      "type": "io.cozy.apps",
+      "verbs": ["GET"]
+    },
+    "mocks todos": {
+      "description": "TO REMOVE: only used as demonstration about Cozy App data interactions",
+      "type": "io.mocks.todos"
+    }
+  }
+}
