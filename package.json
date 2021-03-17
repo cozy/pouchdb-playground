@@ -44,10 +44,13 @@
     "stylint": "1.5.9"
   },
   "dependencies": {
-    "cozy-bar": "7.12.3",
+    "@material-ui/core": "^4.11.3",
+    "@material-ui/styles": "^4.11.3",
+    "cozy-bar": "7.16.0",
     "cozy-client": "^19.1.1",
     "cozy-scripts": "5.4.2",
-    "cozy-ui": "37.8.0",
+    "cozy-ui": "46.0.0",
+    "faker": "^5.4.0",
     "pouchdb": "^7.2.2",
     "pouchdb-adapter-indexeddb": "^7.2.2",
     "pouchdb-browser": "^7.2.2",
