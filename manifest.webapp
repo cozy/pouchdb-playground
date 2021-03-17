@@ -27,6 +27,11 @@
     "mocks todos": {
       "description": "TO REMOVE: only used as demonstration about Cozy App data interactions",
       "type": "io.mocks.todos"
+    },
+    "settings": {
+      "description": "Required by the cozy-bar to display Claudy and know which applications are coming soon",
+      "type": "io.cozy.settings",
+      "verbs": ["GET"]
     }
   }
 }
