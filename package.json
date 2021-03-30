@@ -33,7 +33,7 @@
   "homepage": "https://github.com/paultranvan/pouchdb-playground#readme",
   "devDependencies": {
     "babel-preset-cozy-app": "1.2.5",
-    "cozy-scripts": "^5",
+    "cozy-scripts": "5.4.2",
     "enzyme": "3.8.0",
     "enzyme-adapter-react-16": "1.9.1",
     "eslint": "^7.23.0",
@@ -53,7 +53,6 @@
     "@material-ui/styles": "^4.11.3",
     "cozy-bar": "7.16.0",
     "cozy-client": "^19.1.1",
-    "cozy-scripts": "5.4.2",
     "cozy-ui": "46.0.0",
     "faker": "5.5.0",
     "pouchdb": "^7.2.2",
