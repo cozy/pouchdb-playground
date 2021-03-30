@@ -7,8 +7,7 @@
 
 ## What's Pouchdb playground?
 
-<TODO>...
-
+Make queries with PouchDB and measure performances.
 
 ## Hack
 
