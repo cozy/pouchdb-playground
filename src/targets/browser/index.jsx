@@ -10,7 +10,6 @@ import CozyClient, { CozyProvider } from 'cozy-client'
 import { render } from 'react-dom'
 import { I18n } from 'cozy-ui/transpiled/react/I18n'
 import { BreakpointsProvider } from 'cozy-ui/transpiled/react/hooks/useBreakpoints'
-import schema from 'doctypes'
 
 let appLocale
 const renderApp = function(client) {
@@ -63,8 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // initialize the client to interact with the cozy stack
   const client = new CozyClient({
     uri: `${protocol}//${data.cozyDomain}`,
-    token: data.cozyToken,
-    schema
+    token: data.cozyToken
   })
 
   // initialize the bar, common of all applications, it allows
