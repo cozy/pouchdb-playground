@@ -5,8 +5,9 @@ import Alerter from 'cozy-ui/transpiled/react/Alerter'
 import Label from 'cozy-ui/transpiled/react/Label'
 import Input from 'cozy-ui/transpiled/react/Input'
 import Checkbox from 'cozy-ui/transpiled/react/Checkbox'
+import Divider from 'cozy-ui/transpiled/react/MuiCozyTheme/Divider'
 
-import { getAllData } from '../queries/queries.js'
+import { getAllData, findData, indexData } from '../queries/queries.js'
 import { startMeasure, endMeasure } from '../utils'
 
 export const GetDocs = ({ db }) => {
@@ -23,14 +24,21 @@ export const GetDocs = ({ db }) => {
     setIncludeDocs(event.target.checked)
   }
 
-  const handleSubmit = async maxDocs => {
+  const handleSubmit = async (maxDocs, { isFindQuery = false } = {}) => {
     try {
       setIsBusy(true)
+
+      if (isFindQuery) {
+        await indexData(db)
+      }
       const startTime = startMeasure()
-      const docs = await getAllData(db, { maxDocs, includeDocs })
+      const docs = isFindQuery
+        ? await findData(db, { maxDocs, includeDocs })
+        : await getAllData(db, { maxDocs, includeDocs })
       const execTime = endMeasure(startTime)
 
       setIsBusy(false)
+
       Alerter.success(`${docs.length} docs retrieved`)
       setResultText(`${docs.length} docs retrieved in ${execTime} ms`)
     } catch (err) {
@@ -41,13 +49,15 @@ export const GetDocs = ({ db }) => {
 
   return (
     <div>
-      <Checkbox
-        label="include_docs"
-        onChange={handleIncludeDocsChange}
-        checked={includeDocs}
-      />
       <div>
-        <h3>Get all docs </h3>
+        <h3>Get docs</h3>
+        <Checkbox
+          label="include_docs"
+          onChange={handleIncludeDocsChange}
+          checked={includeDocs}
+        />
+        <Divider />
+        <h4>Get all docs</h4>
         <Button
           id="btn-all-docs"
           type="submit"
@@ -58,14 +68,26 @@ export const GetDocs = ({ db }) => {
         />
       </div>
       <div>
-        <h3>Get some docs </h3>
+        <h4>Get all docs with limit </h4>
         <Input value={nDocs} size="tiny" onChange={handleNDocsChange} />
         <Button
           id="btn-limit-docs"
           type="submit"
           onClick={() => handleSubmit(nDocs)}
           busy={isBusy}
-          label={`Query ${nDocs} docs`}
+          label={`Get ${nDocs} docs`}
+          size="small"
+        />
+      </div>
+      <div>
+        <h4>Find docs with mango</h4>
+        <Input value={nDocs} size="tiny" onChange={handleNDocsChange} />
+        <Button
+          id="btn-limit-find-docs"
+          type="submit"
+          onClick={() => handleSubmit(nDocs, { isFindQuery: true })}
+          busy={isBusy}
+          label={`Find ${nDocs} docs`}
           size="small"
         />
       </div>

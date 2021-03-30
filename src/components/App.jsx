@@ -3,7 +3,7 @@ import { hot } from 'react-hot-loader'
 import { Layout, Main, Content } from 'cozy-ui/transpiled/react/Layout'
 import { Sprite as IconSprite } from 'cozy-ui/transpiled/react/Icon'
 
-import PouchBrowser from './PouchBrowser'
+import PouchDB from './PouchDB'
 
 /*
 PouchDB.plugin(require('pouchdb-adapter-indexeddb'));
@@ -14,7 +14,7 @@ const App = () => (
   <Layout>
     <Main>
       <Content className="app-content">
-        <PouchBrowser />
+        <PouchDB />
       </Content>
     </Main>
     <IconSprite />
