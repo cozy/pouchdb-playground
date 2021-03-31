@@ -16,7 +16,6 @@ export const insertData = async (db, nDocs, { nFields = 2 }) => {
     }
     docs.push(doc)
   }
-  console.log('docs : ', docs)
   return db.bulkDocs(docs)
 }
 

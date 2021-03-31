@@ -22,7 +22,6 @@ export const Replication = ({ db }) => {
       const startTime = startMeasure()
       const resp = await replicate(db, remoteDbName, replicationMode)
       const execTime = endMeasure(startTime)
-      console.log('replicate : ', resp)
       const nDocs = resp.docs_written
       setIsBusy(false)
 

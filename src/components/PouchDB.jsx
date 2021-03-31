@@ -4,10 +4,10 @@ import Card from 'cozy-ui/transpiled/react/Card'
 import Label from 'cozy-ui/transpiled/react/Label'
 import SelectBox from 'cozy-ui/transpiled/react/SelectBox'
 
-// import PouchBrowser from 'pouchdb-browser'
 import PouchDB from 'pouchdb'
 import PouchIndexedDB from 'pouchdb-adapter-indexeddb'
 import PouchFind from 'pouchdb-find'
+import PouchDebug from 'pouchdb-debug'
 
 import AddDocs from './AddDocs'
 import GetDocs from './GetDocs'
@@ -15,9 +15,11 @@ import ResetDB from './ResetDB'
 import Replication from './Replication'
 import { destroyDB } from '../queries/queries.js'
 
-// const remoteDatabase = new PouchDB('http://127.0.0.1:5984/pouch-test')
+PouchDB.plugin(PouchIndexedDB)
+  .plugin(PouchFind)
+  .plugin(PouchDebug)
 
-PouchDB.plugin(PouchIndexedDB).plugin(PouchFind)
+PouchDB.debug.enable('*')
 
 const Pouch = () => {
   const [adapter, setAdapter] = useState('indexeddb')
@@ -37,7 +39,6 @@ const Pouch = () => {
     } else {
       newDb = new PouchDB('pouch-test-indexeddb', { adapter })
     }
-    console.log('DB : ', newDb)
     setDb(newDb)
   }
 
