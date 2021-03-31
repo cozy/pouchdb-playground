@@ -12,6 +12,7 @@ import PouchFind from 'pouchdb-find'
 import AddDocs from './AddDocs'
 import GetDocs from './GetDocs'
 import ResetDB from './ResetDB'
+import Replication from './Replication'
 import { destroyDB } from '../queries/queries.js'
 
 // const remoteDatabase = new PouchDB('http://127.0.0.1:5984/pouch-test')
@@ -68,13 +69,16 @@ const Pouch = () => {
         <SelectBox options={adapters} onChange={handleAdapterChange} />
       </div>
       <Card>
+        <ResetDB handleReset={handleReset} />
+      </Card>
+      <Card>
         <AddDocs db={db} />
       </Card>
       <Card>
         <GetDocs db={db} />
       </Card>
       <Card>
-        <ResetDB handleReset={handleReset} />
+        <Replication db={db} />
       </Card>
       <Alerter />
     </div>

@@ -1,5 +1,9 @@
 import Faker from 'faker'
 
+const COUCH_URL = 'http://localhost:5984'
+export const REPLICATE_TO = 'replicate-to'
+export const REPLICATE_FROM = 'replicate-from'
+
 export const insertData = async (db, nDocs, { nFields = 2 }) => {
   let docs = []
   for (let i = 0; i < nDocs; i++) {
@@ -41,4 +45,13 @@ export const findData = async (db, { maxDocs, includeDocs }) => {
 
 export const destroyDB = async db => {
   return db.destroy()
+}
+
+export const replicate = async (db, remoteDbName, replicationMode) => {
+  const url = `${COUCH_URL}/${remoteDbName}`
+  if (replicationMode === REPLICATE_FROM) {
+    return db.replicate.from(url)
+  } else if (replicationMode === REPLICATE_TO) {
+    return db.replicate.to(url)
+  }
 }

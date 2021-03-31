@@ -13,6 +13,7 @@ import { startMeasure, endMeasure } from '../utils'
 export const GetDocs = ({ db }) => {
   const [isBusy, setIsBusy] = useState(false)
   const [resultText, setResultText] = useState('')
+  const [resultTextIndex, setResultTextIndex] = useState('')
   const [nDocs, setNDocs] = useState(1000)
   const [includeDocs, setIncludeDocs] = useState(true)
 
@@ -29,7 +30,12 @@ export const GetDocs = ({ db }) => {
       setIsBusy(true)
 
       if (isFindQuery) {
-        await indexData(db)
+        const startTime = startMeasure()
+        const index = await indexData(db)
+        if (index.result === 'created') {
+          const execTime = endMeasure(startTime)
+          setResultTextIndex(`docs indexed in ${execTime} ms`)
+        }
       }
       const startTime = startMeasure()
       const docs = isFindQuery
@@ -91,6 +97,7 @@ export const GetDocs = ({ db }) => {
           size="small"
         />
       </div>
+      <Label>{resultTextIndex}</Label>
       <Label>{resultText}</Label>
       <Alerter />
     </div>
