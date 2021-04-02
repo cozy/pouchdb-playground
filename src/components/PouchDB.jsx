@@ -19,7 +19,9 @@ PouchDB.plugin(PouchIndexedDB)
   .plugin(PouchFind)
   .plugin(PouchDebug)
 
-PouchDB.debug.enable('*')
+/*
+  To enable debug: PouchDB.debug.enable('*')
+*/
 
 const Pouch = () => {
   const [adapter, setAdapter] = useState('indexeddb')
