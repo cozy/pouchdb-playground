@@ -131,7 +131,7 @@ The lead maintainer for Pouchdb playground is [paultranvan](https://github.com/p
 
 You can reach the Cozy Community by:
 
-- Chatting with us on IRC [#cozycloud on Freenode][freenode]
+- Chatting with us on IRC [#cozycloud on Libera.Chat][libera]
 - Posting on our [Forum][forum]
 - Posting issues on the [Github repos][github]
 - Say Hi! on [Twitter][twitter]
@@ -160,7 +160,7 @@ Pouchdb playground is developed by paultranvan and distributed under the [AGPL v
 [tx-signin]: https://www.transifex.com/signin/
 [tx-app]: https://www.transifex.com/cozy/<SLUG_TX>/dashboard/
 [tx-client]: http://docs.transifex.com/client/
-[freenode]: http://webchat.freenode.net/?randomnick=1&channels=%23cozycloud&uio=d4
+[libera]: https://web.libera.chat/#cozycloud
 [forum]: https://forum.cozy.io/
 [github]: https://github.com/cozy/
 [twitter]: https://twitter.com/cozycloud
